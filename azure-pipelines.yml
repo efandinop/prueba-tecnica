@@ -39,7 +39,7 @@ steps:
 
 - script: |
     echo "Desplegando en staging..."
-    scp $(Build.ArtifactStagingDirectory)/$(MODULE_NAME).tar.gz usuario@10.0.2.15:/opt/odoo/modules/
-    ssh usuario@10.0.2.15 "tar -xzf /opt/odoo/modules/$(MODULE_NAME).tar.gz -C /opt/odoo/addons/"
-    ssh usuario@10.0.2.15 "systemctl restart odoo"
+    tar -xzf $(Build.ArtifactStagingDirectory)/$(MODULE_NAME).tar.gz -C /opt/odoo/addons/
+    systemctl restart odoo
+  displayName: 'Desplegar en Servidor Staging'
   displayName: 'Desplegar en Servidor Staging'
