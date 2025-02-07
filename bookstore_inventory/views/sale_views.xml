@@ -1,0 +1,18 @@
+<odoo>
+    <record id="view_sale_form" model="ir.ui.view">
+        <field name="name">bookstore.sale.form</field>
+        <field name="model">bookstore.sale</field>
+        <field name="arch" type="xml">
+            <form string="Venta de Libros">
+                <sheet>
+                    <group>
+                        <field name="customer_id"/>
+                        <field name="book_id"/>
+                        <field name="quantity"/>
+                        <field name="sale_date"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

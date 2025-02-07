@@ -1,0 +1,31 @@
+<odoo>
+    <record id="view_book_return_form" model="ir.ui.view">
+        <field name="name">bookstore.return.form</field>
+        <field name="model">bookstore.return</field>
+        <field name="arch" type="xml">
+            <form string="Devolución de Libro">
+                <sheet>
+                    <group>
+                        <field name="sale_id"/>
+                        <field name="return_date"/>
+                        <field name="damaged"/>
+                        <field name="state" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_book_return_tree" model="ir.ui.view">
+        <field name="name">bookstore.return.tree</field>
+        <field name="model">bookstore.return</field>
+        <field name="arch" type="xml">
+            <tree string="Devoluciones">
+                <field name="sale_id"/>
+                <field name="return_date"/>
+                <field name="damaged"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

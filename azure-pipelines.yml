@@ -1,0 +1,44 @@
+trigger:
+  - main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  ODOO_VERSION: '16.0'
+  MODULE_NAME: 'bookstore'
+
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.x'
+
+- script: |
+    echo "Instalando dependencias..."
+    sudo apt update && sudo apt install -y python3-pip
+    pip3 install --upgrade pip
+    pip3 install wheel
+    pip3 install -r requirements.txt || true
+  displayName: 'Instalar dependencias'
+
+- script: |
+    echo "Ejecutando pruebas de Odoo..."
+    odoo-bin --addons-path=addons --test-enable --log-level=test --db-filter=^testdb$ --stop-after-init
+  displayName: 'Ejecutar pruebas unitarias'
+
+- script: |
+    echo "Empaquetando módulo..."
+    tar -czf $(Build.ArtifactStagingDirectory)/$(MODULE_NAME).tar.gz bookstore_*
+  displayName: 'Empaquetar módulo'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathToPublish: '$(Build.ArtifactStagingDirectory)'
+    artifactName: 'drop'
+
+- script: |
+    echo "Desplegando en staging..."
+    scp $(Build.ArtifactStagingDirectory)/$(MODULE_NAME).tar.gz usuario@servidor:/opt/odoo/modules/
+    ssh usuario@servidor "tar -xzf /opt/odoo/modules/$(MODULE_NAME).tar.gz -C /opt/odoo/addons/"
+    ssh usuario@servidor "systemctl restart odoo"
+  displayName: 'Desplegar en Servidor Staging'

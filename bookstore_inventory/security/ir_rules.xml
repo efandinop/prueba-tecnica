@@ -1,0 +1,14 @@
+<odoo>
+    <record id="rule_inventory_user" model="ir.rule">
+        <field name="name">Inventario solo accesible por inventario</field>
+        <field name="model_id" ref="model_bookstore_inventory"/>
+        <field name="groups" eval="[(4, ref('bookstore.group_inventory_user'))]"/>
+    </record>
+
+    <record id="rule_sales_user_own_sales_inventory" model="ir.rule">
+        <field name="name">Ventas solo propias en Inventario</field>
+        <field name="model_id" ref="model_bookstore_sale"/>
+        <field name="groups" eval="[(4, ref('bookstore.group_sales_user'))]"/>
+        <field name="domain_force">[['create_uid', '=', user.id]]</field>
+    </record>
+</odoo>

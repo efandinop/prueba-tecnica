@@ -1,0 +1,16 @@
+<odoo>
+    <record id="view_inventory_form" model="ir.ui.view">
+        <field name="name">bookstore.inventory.form</field>
+        <field name="model">bookstore.inventory</field>
+        <field name="arch" type="xml">
+            <form string="Inventario de Libros">
+                <sheet>
+                    <group>
+                        <field name="book_id"/>
+                        <field name="quantity"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

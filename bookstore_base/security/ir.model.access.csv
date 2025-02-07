@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_bookstore_author,access_bookstore_author,model_bookstore_author,,1,1,1,1
+access_bookstore_book,access_bookstore_book,model_bookstore_book,,1,1,1,1
+access_bookstore_customer,access_bookstore_customer,model_bookstore_customer,,1,1,1,1
+access_bookstore_audit_log_base,access_bookstore_audit_log_base,model_bookstore_audit_log,bookstore.group_bookstore_manager,1,0,0,0

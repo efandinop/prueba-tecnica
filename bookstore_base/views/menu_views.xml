@@ -1,0 +1,7 @@
+<odoo>
+    <menuitem id="menu_bookstore_root" name="Librería" sequence="1"/>
+    <menuitem id="menu_bookstore_authors" parent="menu_bookstore_root" name="Autores" action="view_author_form"/>
+    <menuitem id="menu_bookstore_books" parent="menu_bookstore_root" name="Libros" action="view_book_form"/>
+    <menuitem id="menu_bookstore_customers" parent="menu_bookstore_root" name="Clientes" action="view_customer_form"/>
+    <menuitem id="menu_bookstore_audit" parent="menu_bookstore_root" name="Auditoría" action="view_audit_log_tree" groups="bookstore.group_bookstore_manager"/>
+</odoo>

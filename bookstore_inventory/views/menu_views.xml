@@ -1,0 +1,5 @@
+<odoo>
+    <menuitem id="menu_bookstore_inventory" parent="menu_bookstore_root" name="Inventario" action="view_inventory_form"/>
+    <menuitem id="menu_bookstore_sales" parent="menu_bookstore_root" name="Ventas" action="view_sale_form"/>
+    <menuitem id="menu_bookstore_crm_audit" parent="menu_bookstore_root" name="Auditoría CRM" action="view_audit_log_tree_crm" groups="bookstore.group_bookstore_manager"/>
+</odoo>

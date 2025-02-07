@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_inventory_user,access_inventory_user,model_bookstore_inventory,bookstore.group_inventory_user,1,1,1,0
+access_sales_user_inventory,access_sales_user_inventory,model_bookstore_sale,bookstore.group_sales_user,1,1,1,0
+access_bookstore_audit_log_inventory,access_bookstore_audit_log_inventory,model_bookstore_audit_log,bookstore.group_bookstore_manager,1,0,0,0

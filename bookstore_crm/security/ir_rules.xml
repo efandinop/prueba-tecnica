@@ -1,0 +1,14 @@
+<odoo>
+    <record id="rule_sales_user_own_sales_crm" model="ir.rule">
+        <field name="name">Ventas solo propias (CRM)</field>
+        <field name="model_id" ref="model_bookstore_sale"/>
+        <field name="groups" eval="[(4, ref('bookstore.group_sales_user'))]"/>
+        <field name="domain_force">[['create_uid', '=', user.id]]</field>
+    </record>
+
+    <record id="rule_sales_user_return" model="ir.rule">
+        <field name="name">Devoluciones solo accesibles por vendedores</field>
+        <field name="model_id" ref="model_bookstore_return"/>
+        <field name="groups" eval="[(4, ref('bookstore.group_sales_user'))]"/>
+    </record>
+</odoo>

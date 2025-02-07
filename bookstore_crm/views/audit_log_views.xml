@@ -1,0 +1,35 @@
+<odoo>
+    <record id="view_audit_log_tree_crm" model="ir.ui.view">
+        <field name="name">bookstore.audit.log.tree.crm</field>
+        <field name="model">bookstore.audit.log</field>
+        <field name="arch" type="xml">
+            <tree string="Registro de Auditoría (CRM)">
+                <field name="change_date"/>
+                <field name="model_name"/>
+                <field name="record_id"/>
+                <field name="user_id"/>
+                <field name="change_type"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_audit_log_form_crm" model="ir.ui.view">
+        <field name="name">bookstore.audit.log.form.crm</field>
+        <field name="model">bookstore.audit.log</field>
+        <field name="arch" type="xml">
+            <form string="Registro de Auditoría (CRM)">
+                <sheet>
+                    <group>
+                        <field name="change_date"/>
+                        <field name="model_name"/>
+                        <field name="record_id"/>
+                        <field name="user_id"/>
+                        <field name="change_type"/>
+                        <field name="old_value" nolabel="1"/>
+                        <field name="new_value" nolabel="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

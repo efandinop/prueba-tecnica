@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sales_user,access_sales_user,model_bookstore_sale,bookstore.group_sales_user,1,1,1,0
+access_bookstore_customer_preferences,access_bookstore_customer_preferences,model_bookstore_customer_preferences,,1,1,1,1
+access_bookstore_return,access_bookstore_return,model_bookstore_return,bookstore.group_sales_user,1,1,1,0
+access_bookstore_audit_log_crm,access_bookstore_audit_log_crm,model_bookstore_audit_log,bookstore.group_bookstore_manager,1,0,0,0

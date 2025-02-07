@@ -1,0 +1,6 @@
+
+<odoo>
+    <menuitem id="menu_bookstore_crm" parent="menu_bookstore_root" name="Clientes" action="view_customer_preferences_form"/>
+    <menuitem id="menu_bookstore_returns" parent="menu_bookstore_root" name="Devoluciones" action="view_book_return_tree"/>
+    <menuitem id="menu_bookstore_crm_audit" parent="menu_bookstore_root" name="Auditoría CRM" action="view_audit_log_tree_crm" groups="bookstore.group_bookstore_manager"/>
+</odoo>
