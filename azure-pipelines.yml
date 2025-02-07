@@ -7,8 +7,11 @@ pool:
   name: 'prueba-tecnica'  # Se usa el agente self-hosted
 
 variables:
+  - group: SonarQube
   ODOO_VERSION: '16.0'
   MODULE_NAME: 'bookstore'
+  SONAR_PROJECT_KEY: 'efandinop_prueba-tecnica'
+  SONAR_ORG: 'efandinop'  # Organización en SonarCloud
 
 steps:
 
@@ -19,6 +22,15 @@ steps:
     pip3 install wheel
     pip3 install -r requirements.txt || true
   displayName: 'Instalar dependencias'
+
+- script: |
+    echo "Ejecutando análisis de SonarQube..."
+    sonar-scanner \
+      -Dsonar.projectKey=$(SONAR_PROJECT_KEY) \
+      -Dsonar.organization=$(SONAR_ORG) \
+      -Dsonar.host.url=$(SONAR_HOST_URL) \
+      -Dsonar.login=$(SONAR_TOKEN)
+  displayName: 'Ejecutar SonarQube'
 
 - script: |
     echo "Ejecutando pruebas de Odoo..."
