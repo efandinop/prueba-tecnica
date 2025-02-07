@@ -8,14 +8,10 @@ pool:
 
 variables:
   - group: SonarQube
-  - name: ODOO_VERSION
-    value: '16.0'
-  - name: MODULE_NAME
-    value: 'bookstore'
-  - name: SONAR_PROJECT_KEY
-    value: 'efandinop_prueba-tecnica'
-  - name: SONAR_ORG
-    value: 'efandinop'  # Organización en SonarCloud
+  ODOO_VERSION: '16.0'
+  MODULE_NAME: 'bookstore'
+  SONAR_PROJECT_KEY: 'efandinop_prueba-tecnica'
+  SONAR_ORG: 'efandinop'  # Organización en SonarCloud
 
 steps:
 
@@ -29,6 +25,7 @@ steps:
 
 - script: |
     echo "Ejecutando análisis de SonarQube..."
+    export PATH=$PATH:/opt/sonar-scanner/sonar-scanner-5.0.1.3006-linux/bin
     sonar-scanner \
       -Dsonar.projectKey=$(SONAR_PROJECT_KEY) \
       -Dsonar.organization=$(SONAR_ORG) \
