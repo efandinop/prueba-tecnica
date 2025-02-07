@@ -1,8 +1,9 @@
+
 trigger:
   - main
 
 pool:
-  vmImage: 'ubuntu-latest'
+  name: 'prueba-tecnica' 
 
 variables:
   ODOO_VERSION: '16.0'
