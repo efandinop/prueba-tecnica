@@ -1,18 +1,14 @@
-
 trigger:
   - main
 
 pool:
-  name: 'prueba-tecnica' 
+  name: 'prueba-tecnica'  # Se usa el agente self-hosted
 
 variables:
   ODOO_VERSION: '16.0'
   MODULE_NAME: 'bookstore'
 
 steps:
-- task: UsePythonVersion@0
-  inputs:
-    versionSpec: '3.x'
 
 - script: |
     echo "Instalando dependencias..."
