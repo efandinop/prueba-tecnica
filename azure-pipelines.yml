@@ -39,6 +39,9 @@ steps:
 
 - script: |
     echo "Desplegando en staging..."
+    sudo mkdir -p /opt/odoo/addons/
+    sudo chown -R $(whoami):$(whoami) /opt/odoo/addons/
     tar -xzf $(Build.ArtifactStagingDirectory)/$(MODULE_NAME).tar.gz -C /opt/odoo/addons/
-    systemctl restart odoo
+    sudo systemctl restart odoo
+  displayName: 'Desplegar en Servidor Staging'
   displayName: 'Desplegar en Servidor Staging'
