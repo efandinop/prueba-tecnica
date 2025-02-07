@@ -1,3 +1,5 @@
+### azure-pipelines.yml
+
 trigger:
   - main
 
@@ -20,7 +22,9 @@ steps:
 
 - script: |
     echo "Ejecutando pruebas de Odoo..."
-    odoo-bin --addons-path=addons --test-enable --log-level=test --db-filter=^testdb$ --stop-after-init
+    cd /opt/odoo/odoo-server
+    source odoo-venv/bin/activate
+    ./odoo-bin --addons-path=addons --test-enable --log-level=test --db-filter=^testdb$ --stop-after-init
   displayName: 'Ejecutar pruebas unitarias'
 
 - script: |
