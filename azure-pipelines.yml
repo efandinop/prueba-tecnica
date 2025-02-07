@@ -44,4 +44,4 @@ steps:
     tar -xzf $(Build.ArtifactStagingDirectory)/$(MODULE_NAME).tar.gz -C /opt/odoo/addons/
     sudo systemctl restart odoo
   displayName: 'Desplegar en Servidor Staging'
-
+  displayName: 'Desplegar en Servidor Staging'
